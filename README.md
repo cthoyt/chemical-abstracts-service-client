@@ -37,13 +37,23 @@ An API client to the Chemical Abstracts Service (CAS).
 
 ## 💪 Getting Started
 
-> TODO show in a very small amount of space the **MOST** useful thing your
-> package can do. Make it as short as possible! You have an entire set of docs
-> for later.
+After getting an API key from [this form](https://www.cas.org/services/commonchemistry-api),
+you can use the two functions exposed from the CAS API like in the following examples:
+
+```python
+from chemical_abstracts_service_client import get_cas, search_cas
+
+chemical = get_cas("110-63-4")
+>>> chemical.name 
+'1,4-Butanediol'
+
+search_results = search_cas("butane")
+>>> search_results.results[0].cas
+'106-97-8'
+```
 
 ## 🚀 Installation
 
-<!-- Uncomment this section after your first ``tox -e finish``
 The most recent release can be installed from
 [PyPI](https://pypi.org/project/chemical_abstracts_service_client/) with uv:
 
@@ -56,7 +66,6 @@ or with pip:
 ```console
 $ python3 -m pip install chemical_abstracts_service_client
 ```
--->
 
 The most recent code and data can be installed directly from GitHub with uv:
 

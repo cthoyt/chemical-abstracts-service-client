@@ -19,9 +19,9 @@ __all__ = [
     "Chemical",
     "ExperimentalProperty",
     "PropertyCitations",
-    "get_chemical",
+    "get_cas",
     "is_valid",
-    "search",
+    "search_cas",
 ]
 
 CAS_RE = re.compile(r"^\d{1,7}-\d{2}-\d$")
@@ -97,7 +97,7 @@ class SearchResults(BaseModel):
     results: list[CoreChemical]
 
 
-def get_chemical(cas_registry_number: str) -> Chemical:
+def get_cas(cas_registry_number: str) -> Chemical:
     """Get a chemical from the Chemical Abstracts Service."""
     response = _get("detail", {"cas_rn": cas_registry_number})
     response.raise_for_status()
@@ -114,7 +114,7 @@ def get_chemical(cas_registry_number: str) -> Chemical:
     return Chemical.model_validate(xx)
 
 
-def search(query: str, offset: int | None = None, size: int | None = None) -> SearchResults:
+def search_cas(query: str, offset: int | None = None, size: int | None = None) -> SearchResults:
     """Search the Chemical Abstracts Service."""
     params: dict[str, Any] = {"q": query}
     if offset:

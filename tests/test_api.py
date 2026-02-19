@@ -4,7 +4,7 @@ import unittest
 
 import requests.exceptions
 
-from chemical_abstracts_service_client import get_chemical, search
+from chemical_abstracts_service_client import get_cas, search_cas
 from chemical_abstracts_service_client.version import get_version
 
 
@@ -14,12 +14,12 @@ class TestGetter(unittest.TestCase):
     def test_missing(self) -> None:
         """Test getting an invalid CAS."""
         with self.assertRaises(requests.exceptions.HTTPError) as ctx:
-            get_chemical("1234")
+            get_cas("1234")
             self.assertEqual(404, ctx.exception.response.status_code)
 
     def test_get(self) -> None:
         """Test getting a valid CAS."""
-        chemical = get_chemical("110-63-4")
+        chemical = get_cas("110-63-4")
         self.assertEqual("110-63-4", chemical.cas)
         self.assertEqual("1,4-Butanediol", chemical.name)
         self.assertEqual(90.12, chemical.molecular_mass)
@@ -35,18 +35,18 @@ class TestGetter(unittest.TestCase):
 
     def test_search_single(self) -> None:
         """Test search."""
-        search_results = search("butane")
+        search_results = search_cas("butane")
         self.assertEqual(1, search_results.count)
         self.assertEqual("106-97-8", search_results.results[0].cas)
         self.assertEqual("Butane", search_results.results[0].name)
 
     def test_search_wildcard(self) -> None:
         """Test search with a wildcard."""
-        search_results = search("sodium*")
+        search_results = search_cas("sodium*")
         self.assertLessEqual(2_000, search_results.count)
         self.assertEqual(50, len(search_results.results))
 
-        search_results = search("sodium*", size=100)
+        search_results = search_cas("sodium*", size=100)
         self.assertLessEqual(2_000, search_results.count)
         self.assertEqual(100, len(search_results.results))
 
