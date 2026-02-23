@@ -114,7 +114,7 @@ Repository = "https://github.com/cthoyt/chemical-abstracts-service-client.git"
 Documentation = "https://chemical_abstracts_service_client.readthedocs.io"
 Funding = "https://github.com/sponsors/cthoyt"
 
-
+[project.scripts]
 
 [tool.cruft]
 skip = [
@@ -149,7 +149,6 @@ omit = [
     "docs/*",
     "src/chemical_abstracts_service_client/version.py",
     "src/chemical_abstracts_service_client/__main__.py",
-    "src/chemical_abstracts_service_client/cli.py",
 ]
 
 [tool.coverage.paths]
