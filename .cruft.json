@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/cthoyt/cookiecutter-snekpack",
-  "commit": "89bbbd071ad492d39d1d47984906050bd27c99f3",
+  "commit": "5f482dacdfb5e7f8eae5fcb7b30b0db8221217a4",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -25,7 +25,7 @@
       "__runner_tests": "py",
       "__gh_slug": "cthoyt/chemical-abstracts-service-client",
       "_template": "https://github.com/cthoyt/cookiecutter-snekpack",
-      "_commit": "89bbbd071ad492d39d1d47984906050bd27c99f3"
+      "_commit": "5f482dacdfb5e7f8eae5fcb7b30b0db8221217a4"
     }
   },
   "directory": null
