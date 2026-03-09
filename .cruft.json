@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/cthoyt/cookiecutter-snekpack",
-  "commit": "89bbbd071ad492d39d1d47984906050bd27c99f3",
+  "commit": "ea65caae6a5a61011eaf4512fff1bbf1d4c643b1",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -24,8 +24,9 @@
       "__runner_install_pip": "python3 -m pip install tox tox-uv",
       "__runner_tests": "py",
       "__gh_slug": "cthoyt/chemical-abstracts-service-client",
+      "__package_name_dashed": "chemical-abstracts-service-client",
       "_template": "https://github.com/cthoyt/cookiecutter-snekpack",
-      "_commit": "89bbbd071ad492d39d1d47984906050bd27c99f3"
+      "_commit": "ea65caae6a5a61011eaf4512fff1bbf1d4c643b1"
     }
   },
   "directory": null
